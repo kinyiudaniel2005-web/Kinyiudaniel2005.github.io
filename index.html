@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tu Nombre – Ingeniería en Ciencias de la Computación</title>
+<meta name="description" content="Portafolio de Tu Nombre, estudiante de Ingeniería en Ciencias de la Computación.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f6fd; --surface:#ffffff; --ink:#151a3d; --muted:#5d6588; --line:#dde3f3;
+  --blue:#3b6cf6; --green:#12b085; --purple:#7a4df0; --navy:#141a52;
+  --blue-soft:#e4ebff; --green-soft:#d9f6ec; --purple-soft:#ece4ff;
+  --display:"Outfit",system-ui,sans-serif;
+  --body:"DM Sans",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.65}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+
+.layout{display:grid;grid-template-columns:minmax(290px,36%) 1fr;min-height:100vh}
+
+/* Panel lateral */
+aside{position:sticky;top:0;height:100vh;padding:3rem 2.5rem;display:flex;flex-direction:column;justify-content:space-between;color:#fff;overflow:hidden;
+  background:linear-gradient(165deg,#1d3bd1 0%,#5b2fc4 55%,#0e9a80 120%)}
+aside>*{position:relative;z-index:1}
+.circuit{position:absolute!important;inset:auto 0 0 0;width:100%;height:55%;opacity:.22;z-index:0!important}
+.name{font-family:var(--display);font-weight:800;font-size:clamp(3rem,6.2vw,5.6rem);line-height:.92;letter-spacing:-.03em}
+.role{margin-top:1.25rem;max-width:26ch;color:#dfe5ff}
+nav ul{list-style:none;display:grid;gap:.5rem}
+nav a{display:inline-block;text-decoration:none;color:#cfd6ff;padding:.15rem 0;border-bottom:2px solid transparent;transition:color .2s,padding .2s}
+nav a:hover,nav a[aria-current="true"]{color:#fff;padding-left:.6rem;border-bottom-color:#5ff0c4}
+.social{display:flex;gap:1.25rem;margin-top:1.5rem}
+.social a{color:#cfd6ff;text-underline-offset:4px}
+.social a:hover{color:#fff}
+
+/* Contenido */
+main{padding:3rem clamp(1.5rem,6vw,5rem) 4rem}
+section{padding:3rem 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,3vw,2.5rem);letter-spacing:-.02em;margin-bottom:1.5rem;display:flex;align-items:center;gap:.8rem}
+h2::before{content:"";width:.9rem;height:.9rem;border-radius:.3rem;background:linear-gradient(135deg,var(--blue),var(--purple))}
+p{max-width:62ch}
+p+p{margin-top:1rem}
+
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
+.about svg{width:100%;height:auto}
+
+.projects{list-style:none;display:grid;gap:1.25rem}
+.project{display:grid;grid-template-columns:150px 1fr;gap:1.25rem;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:1.25rem;padding:1rem;transition:transform .2s,box-shadow .2s}
+.project:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(59,108,246,.14)}
+.project svg{width:150px;height:105px;border-radius:.9rem;display:block}
+.project h3{font-family:var(--display);font-size:1.35rem;font-weight:500}
+.project h3 a{text-decoration:none}
+.project h3 a:hover{color:var(--blue)}
+.project p{color:var(--muted);font-size:1rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem}
+.tags span{font-size:.85rem;font-weight:700;padding:.1rem .65rem;border-radius:999px;background:var(--blue-soft);color:var(--blue)}
+.tags span:nth-child(2){background:var(--green-soft);color:#0b8a68}
+.tags span:nth-child(3){background:var(--purple-soft);color:var(--purple)}
+
+.skills{display:flex;flex-wrap:wrap;gap:.6rem;list-style:none}
+.skills li{padding:.4rem 1rem;border-radius:999px;font-weight:700;font-size:.95rem;background:var(--blue-soft);color:var(--blue)}
+.skills li:nth-child(3n+2){background:var(--green-soft);color:#0b8a68}
+.skills li:nth-child(3n){background:var(--purple-soft);color:var(--purple)}
+
+.contact{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center}
+.contact svg{width:180px;height:auto}
+.contact-link{display:inline-block;font-family:var(--display);font-weight:800;font-size:clamp(1.4rem,3.2vw,2.5rem);letter-spacing:-.02em;text-decoration-thickness:3px;text-underline-offset:8px;text-decoration-color:var(--green);word-break:break-word}
+.contact-link:hover{color:var(--purple)}
+
+footer{color:var(--muted);font-size:.9rem;padding-top:2rem}
+
+@media (max-width:860px){
+  .layout{grid-template-columns:1fr}
+  aside{position:static;height:auto;padding:2rem 1.5rem;gap:2rem}
+  .circuit{height:100%}
+  nav ul{grid-auto-flow:column;justify-content:start;gap:1.25rem}
+  nav a:hover{padding-left:0}
+  .about,.contact{grid-template-columns:1fr}
+  .contact svg{display:none}
+}
+@media (max-width:520px){
+  .project{grid-template-columns:1fr}
+  .project svg{width:100%;height:auto;aspect-ratio:3/2}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside>
+    <!-- Decoración: líneas de circuito -->
+    <svg class="circuit" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true">
+      <path d="M0 250h90l30-40h80M0 190h60l40-50h120l30-30h110M0 130h40l30 30h60M400 250H300l-30-40M400 190h-50l-30 40h-70M200 300v-60l30-30"/>
+      <g fill="#fff"><circle cx="90" cy="250" r="5"/><circle cx="200" cy="210" r="5"/><circle cx="220" cy="140" r="5"/><circle cx="360" cy="110" r="5"/><circle cx="130" cy="160" r="5"/><circle cx="270" cy="210" r="5"/><circle cx="230" cy="210" r="5"/></g>
+    </svg>
+
+    <div>
+      <h1 class="name">Tu<br>Nombre</h1>
+      <p class="role">Ingeniería en Ciencias de la Computación. Diseño y construyo software claro y rápido.</p>
+    </div>
+    <div>
+      <nav aria-label="Secciones">
+        <ul>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="social">
+        <a href="https://github.com/tuusuario" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/tuusuario" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <section id="sobre-mi">
+      <h2>Sobre mí</h2>
+      <div class="about">
+        <div>
+          <p>Soy estudiante de Ingeniería en Ciencias de la Computación y vivo en Guayaquil, Ecuador. Me gustan los algoritmos, el desarrollo web y la inteligencia artificial.</p>
+          <p>Escribe aquí dos o tres frases sobre tu experiencia, lo que estás estudiando y qué tipo de proyectos buscas.</p>
+        </div>
+        <!-- Ilustración: laptop con código y chip -->
+        <svg viewBox="0 0 360 260" role="img" aria-label="Ilustración de una laptop con código y un chip">
+          <defs><linearGradient id="ga" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b6cf6"/><stop offset="1" stop-color="#7a4df0"/></linearGradient></defs>
+          <rect x="15" y="25" width="330" height="210" rx="32" fill="#e4ebff"/>
+          <g stroke="#7a4df0" stroke-width="2" opacity=".5"><path d="M45 70l50 40M315 150l-30 20M60 205l40-20"/></g>
+          <circle cx="45" cy="70" r="9" fill="#12b085"/><circle cx="315" cy="150" r="9" fill="#7a4df0"/><circle cx="60" cy="205" r="9" fill="#3b6cf6"/>
+          <rect x="75" y="55" width="210" height="132" rx="12" fill="#141a52"/>
+          <rect x="95" y="75" width="90" height="9" rx="4.5" fill="#12b085"/>
+          <rect x="95" y="93" width="135" height="9" rx="4.5" fill="#7a4df0"/>
+          <rect x="115" y="111" width="75" height="9" rx="4.5" fill="#3b6cf6"/>
+          <rect x="115" y="129" width="115" height="9" rx="4.5" fill="#12b085" opacity=".7"/>
+          <rect x="95" y="147" width="55" height="9" rx="4.5" fill="#7a4df0"/>
+          <path d="M55 197h250l-16 20H71z" fill="url(#ga)"/>
+          <g transform="translate(255 28)">
+            <g stroke="#12b085" stroke-width="3" stroke-linecap="round"><path d="M10 -6v6M24 -6v6M38 -6v6M10 44v6M24 44v6M38 44v6M-6 10h6M-6 24h6M-6 38h6M44 10h6M44 24h6M44 38h6" transform="translate(0 0)"/></g>
+            <rect width="44" height="44" rx="9" fill="#12b085"/><rect x="11" y="11" width="22" height="22" rx="5" fill="#d9f6ec"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section id="proyectos">
+      <h2>Proyectos</h2>
+      <ul class="projects">
+        <li class="project">
+          <!-- Grafo -->
+          <svg viewBox="0 0 150 105" role="img" aria-label="Grafo de nodos conectados">
+            <defs><linearGradient id="p1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b6cf6"/><stop offset="1" stop-color="#7a4df0"/></linearGradient></defs>
+            <rect width="150" height="105" fill="url(#p1)"/>
+            <g stroke="#fff" stroke-width="2" opacity=".7"><path d="M30 30L75 55L120 25M75 55L45 85M75 55L115 80M30 30L45 85"/></g>
+            <g fill="#fff"><circle cx="30" cy="30" r="8"/><circle cx="120" cy="25" r="8"/><circle cx="45" cy="85" r="8"/><circle cx="115" cy="80" r="8"/></g>
+            <circle cx="75" cy="55" r="11" fill="#5ff0c4"/>
+          </svg>
+          <div>
+            <h3><a href="#" target="_blank" rel="noopener">Visualizador de algoritmos</a></h3>
+            <p>Animaciones paso a paso de ordenamiento y búsqueda en grafos.</p>
+            <div class="tags"><span>JavaScript</span><span>Canvas</span></div>
+          </div>
+        </li>
+        <li class="project">
+          <!-- Base de datos -->
+          <svg viewBox="0 0 150 105" role="img" aria-label="Base de datos">
+            <defs><linearGradient id="p2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#12b085"/><stop offset="1" stop-color="#3b6cf6"/></linearGradient></defs>
+            <rect width="150" height="105" fill="url(#p2)"/>
+            <g fill="#fff"><ellipse cx="75" cy="30" rx="32" ry="10"/><path d="M43 36v14c0 5.500 14.300 10 32 10s32-4.500 32-10V36c0 5.500-14.300 10-32 10S43 41.500 43 36z" opacity=".85"/><path d="M43 56v14c0 5.500 14.300 10 32 10s32-4.500 32-10V56c0 5.500-14.300 10-32 10S43 61.500 43 56z" opacity=".65"/></g>
+          </svg>
+          <div>
+            <h3><a href="#" target="_blank" rel="noopener">Gestión de inventario</a></h3>
+            <p>API REST con base de datos relacional y autenticación de usuarios.</p>
+            <div class="tags"><span>Python</span><span>SQL</span><span>Flask</span></div>
+          </div>
+        </li>
+        <li class="project">
+          <!-- Red neuronal -->
+          <svg viewBox="0 0 150 105" role="img" aria-label="Red neuronal">
+            <defs><linearGradient id="p3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7a4df0"/><stop offset="1" stop-color="#12b085"/></linearGradient></defs>
+            <rect width="150" height="105" fill="url(#p3)"/>
+            <g stroke="#fff" stroke-width="1.500" opacity=".55"><path d="M30 28L75 22M30 28L75 52M30 28L75 82M30 78L75 22M30 78L75 52M30 78L75 82M75 22L120 52M75 52L120 52M75 82L120 52"/></g>
+            <g fill="#fff"><circle cx="30" cy="28" r="7"/><circle cx="30" cy="78" r="7"/><circle cx="75" cy="22" r="7"/><circle cx="75" cy="52" r="7"/><circle cx="75" cy="82" r="7"/></g>
+            <circle cx="120" cy="52" r="9" fill="#5ff0c4"/>
+          </svg>
+          <div>
+            <h3><a href="#" target="_blank" rel="noopener">Clasificador de imágenes</a></h3>
+            <p>Red neuronal entrenada para reconocer objetos comunes.</p>
+            <div class="tags"><span>Python</span><span>PyTorch</span></div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="habilidades">
+      <h2>Habilidades</h2>
+      <ul class="skills">
+        <li>Python</li><li>Java</li><li>C++</li><li>JavaScript</li><li>SQL</li>
+        <li>Estructuras de datos</li><li>Algoritmos</li><li>Bases de datos</li><li>Sistemas operativos</li>
+        <li>Redes</li><li>Inteligencia artificial</li><li>Git</li><li>Linux</li><li>Docker</li>
+      </ul>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <div class="contact">
+        <div>
+          <p style="margin-bottom:1.5rem">¿Tienes un proyecto o una oferta de pasantía? Escríbeme.</p>
+          <a class="contact-link" href="mailto:tucorreo@ejemplo.com">tucorreo@ejemplo.com</a>
+        </div>
+        <!-- Ilustración: chip -->
+        <svg viewBox="0 0 180 180" role="img" aria-label="Ilustración de un microprocesador">
+          <defs><linearGradient id="gc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b6cf6"/><stop offset="1" stop-color="#7a4df0"/></linearGradient></defs>
+          <g stroke="#12b085" stroke-width="5" stroke-linecap="round"><path d="M55 20v22M90 20v22M125 20v22M55 138v22M90 138v22M125 138v22M20 55h22M20 90h22M20 125h22M138 55h22M138 90h22M138 125h22"/></g>
+          <rect x="40" y="40" width="100" height="100" rx="18" fill="url(#gc)"/>
+          <rect x="62" y="62" width="56" height="56" rx="10" fill="#fff" opacity=".9"/>
+          <rect x="76" y="76" width="28" height="28" rx="6" fill="#12b085"/>
+        </svg>
+      </div>
+    </section>
+
+    <footer>© <span id="year">2026</span> Tu Nombre</footer>
+  </main>
+
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Marca la sección visible en el menú
+  const links = document.querySelectorAll('nav a');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) links.forEach(l => l.setAttribute('aria-current', l.hash === '#' + e.target.id));
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  document.querySelectorAll('main section').forEach(s => io.observe(s));
+</script>
+</body>
+</html>
