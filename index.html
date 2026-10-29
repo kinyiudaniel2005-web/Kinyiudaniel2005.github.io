@@ -29,7 +29,7 @@ aside{position:sticky;top:0;height:100vh;padding:3rem 2.5rem;display:flex;flex-d
   background:linear-gradient(165deg,#1d3bd1 0%,#5b2fc4 55%,#0e9a80 120%)}
 aside>*{position:relative;z-index:1}
 .circuit{position:absolute!important;inset:auto 0 0 0;width:100%;height:55%;opacity:.22;z-index:0!important}
-.name{font-family:var(--display);font-weight:800;font-size:clamp(3rem,6.2vw,5.6rem);line-height:.92;letter-spacing:-.03em}
+.name{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,4.8vw,4.4rem);line-height:.92;letter-spacing:-.03em}
 .role{margin-top:1.25rem;max-width:26ch;color:#dfe5ff}
 nav ul{list-style:none;display:grid;gap:.5rem}
 nav a{display:inline-block;text-decoration:none;color:#cfd6ff;padding:.15rem 0;border-bottom:2px solid transparent;transition:color .2s,padding .2s}
@@ -70,7 +70,7 @@ p+p{margin-top:1rem}
 
 .contact{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center}
 .contact svg{width:180px;height:auto}
-.contact-link{display:inline-block;font-family:var(--display);font-weight:800;font-size:clamp(1.4rem,3.2vw,2.5rem);letter-spacing:-.02em;text-decoration-thickness:3px;text-underline-offset:8px;text-decoration-color:var(--green);word-break:break-word}
+.contact-link{display:inline-block;font-family:var(--display);font-weight:800;font-size:clamp(1.4rem,3.2vw,2.5rem);letter-spacing:-.02em;text-decoration-thickness:3px;text-underline-offset:8px;text-decoration-color:rgba(122,77,240,.55)}
 .contact-link:hover{color:var(--purple)}
 
 footer{color:var(--muted);font-size:.9rem;padding-top:2rem}
@@ -98,7 +98,7 @@ footer{color:var(--muted);font-size:.9rem;padding-top:2rem}
     <!-- Decoración: líneas de circuito -->
     <svg class="circuit" viewBox="0 0 400 300" preserveAspectRatio="xMidYMax slice" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true">
       <path d="M0 250h90l30-40h80M0 190h60l40-50h120l30-30h110M0 130h40l30 30h60M400 250H300l-30-40M400 190h-50l-30 40h-70M200 300v-60l30-30"/>
-      <g fill="#fff"><circle cx="90" cy="250" r="5"/><circle cx="200" cy="210" r="5"/><circle cx="220" cy="140" r="5"/><circle cx="360" cy="110" r="5"/><circle cx="130" cy="160" r="5"/><circle cx="270" cy="210" r="5"/><circle cx="230" cy="210" r="5"/></g>
+      <g fill="#fff"><circle cx="90" cy="250" r="5"/><circle cx="200" cy="210" r="5"/><circle cx="220" cy="140" r="5"/><circle cx="360" cy="110" r="5"/><circle cx="130" cy="160" r="5"/><circle cx="270" cy="70" r="5"/></g>
     </svg>
 
     <div>
@@ -143,7 +143,7 @@ footer{color:var(--muted);font-size:.9rem;padding-top:2rem}
           <rect x="95" y="147" width="55" height="9" rx="4.5" fill="#7a4df0"/>
           <path d="M55 197h250l-16 20H71z" fill="url(#ga)"/>
           <g transform="translate(255 28)">
-            <g stroke="#12b085" stroke-width="3" stroke-linecap="round"><path d="M10 -6v6M24 -6v6M38 -6v6M10 44v6M24 44v6M38 44v6M-6 10h6M-6 24h6M-6 38h6M44 10h6M44 24h6M44 38h6" transform="translate(0 0)"/></g>
+            <g stroke="#12b085" stroke-width="3" stroke-linecap="round"><path d="M10 -6v6M24 -6v6M38 -6v6M10 44v6M24 44v6M38 44v6M-6 10h6M-6 24h6M-6 38h6M44 10h6M44 24h6M44 38h6"/></g>
             <rect width="44" height="44" rx="9" fill="#12b085"/><rect x="11" y="11" width="22" height="22" rx="5" fill="#d9f6ec"/>
           </g>
         </svg>
@@ -173,7 +173,7 @@ footer{color:var(--muted);font-size:.9rem;padding-top:2rem}
           <svg viewBox="0 0 150 105" role="img" aria-label="Base de datos">
             <defs><linearGradient id="p2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#12b085"/><stop offset="1" stop-color="#3b6cf6"/></linearGradient></defs>
             <rect width="150" height="105" fill="url(#p2)"/>
-            <g fill="#fff"><ellipse cx="75" cy="30" rx="32" ry="10"/><path d="M43 36v14c0 5.500 14.300 10 32 10s32-4.500 32-10V36c0 5.500-14.300 10-32 10S43 41.500 43 36z" opacity=".85"/><path d="M43 56v14c0 5.500 14.300 10 32 10s32-4.500 32-10V56c0 5.500-14.300 10-32 10S43 61.500 43 56z" opacity=".65"/></g>
+            <g fill="#fff"><ellipse cx="75" cy="30" rx="32" ry="10"/><path d="M43 36v14c0 5.500 14.300 10 32 10s32-4.500 32-10V36c0 5.500-14.300 10-32 10S43 41.500 43 36z" opacity=".85"/><path d="M43 55v14c0 5.500 14.300 10 32 10s32-4.500 32-10V55c0 5.500-14.300 10-32 10S43 60.500 43 55z" opacity=".7"/><path d="M43 74v14c0 5.500 14.300 10 32 10s32-4.500 32-10V74c0 5.500-14.300 10-32 10S43 79.500 43 74z" opacity=".55"/></g>
           </svg>
           <div>
             <h3><a href="#" target="_blank" rel="noopener">Gestión de inventario</a></h3>
